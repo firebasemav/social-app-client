@@ -17,9 +17,10 @@ import { logoutUser, getUserData } from './redux/actions/userActions';
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
+import user from './pages/user';
 
 //Components
-import Navbar from './components/Navbar';
+import Navbar from './components/layout/Navbar';
 import AuthRoute from './util/AuthRoute';
 
 const token = localStorage.FBIdToken;
@@ -99,6 +100,7 @@ export default class App extends Component {
               <Route exact path='/' component={home}/>
               <AuthRoute exact path='/login' component={login}/>
               <AuthRoute exact path='/signup' component={signup}/>
+              <Route exact path="/users/:handle" component={user} />
             </Switch>
           </div>
         </Router>
