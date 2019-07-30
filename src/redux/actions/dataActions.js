@@ -74,7 +74,7 @@ export const likeScream = (screamId) => (dispatch) => {
             dispatch({
                 type: LIKE_SCREAM,
                 payload: res.data
-            })
+            });
         })
         .catch(err => console.log(err));
 } 
@@ -87,7 +87,7 @@ export const unlikeScream = (screamId) => (dispatch) => {
             dispatch({
                 type: UNLIKE_SCREAM,
                 payload: res.data
-            })
+            });
         })
         .catch(err => console.log(err));
 } 
@@ -107,8 +107,8 @@ export const submitComment = (screamId, commentData) => (dispatch) => {
             dispatch({
                 type: SET_ERRORS,
                 payload: err.response.data
-            })
-        })
+            });
+        });
 }
 
 export const deleteScream = (screamId) => (dispatch) => {
@@ -125,15 +125,15 @@ export const getUserData = (userHandle) => dispatch => {
         .then(res => {
             dispatch({
                 type: SET_SCREAMS,
-                payload: res.data.getScreams
+                payload: res.data.screams
             });
         })
         .catch(() => {
             dispatch({
                 type: SET_SCREAMS,
                 payload: null
-            })
-        })
+            });
+        });
 }
 
 export const clearErrors = () => dispatch => {
